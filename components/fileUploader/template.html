@@ -1,0 +1,43 @@
+<template>
+    <style>
+        /*global*/
+        h1 { margin: 0}
+
+        /*layout*/
+        .image-upload {
+            width: 100%;
+            height: 50px;
+        }
+
+        .image-upload-option {
+            width: 50%;
+            height: 100%;
+            float: left;
+        }
+
+        /*skin*/
+        .image-upload {
+            border: 4px black dashed;
+        }
+
+        .image-upload-option:first-child {
+            border-right: 4px black dashed;
+            box-sizing: border-box;
+        }
+
+        [dragging] {
+            background-color: #3C3F41;
+            color: white;
+            text-align: center;
+        }
+
+        [dragging]:after {
+            content: "DROP HERE!"
+
+        }
+    </style>
+    <div class="image-upload">
+        <div class="input-field image-upload-option"><input type="file" multiple></div>
+        <div id="drag" class="image-upload-option"></div>
+    </div>
+</template>

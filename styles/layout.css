@@ -1,0 +1,22 @@
+/*layout*/
+#upload {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.image-uploader {
+    margin-top: 5em;
+    display:block;
+}
+
+#thumbnails .image-thumbnail {
+    float: left;
+    margin-right: 2em;
+    padding: 1em;
+}
+
+/*skin*/
+#thumbnails .image-thumbnail {
+    border: 1px black dashed;
+    cursor: pointer;
+}
