@@ -8,10 +8,17 @@
      * Create thumbnail.
      *
      * Uses canvas to resize the image.
+     * @param {Boolean} error - indicates whether there was error while reading file.
      * @param {String} originalImage - Base64 string.
      * @param {Function} onThumbnailCreated - called when we have re-sized image.
+     * If error is set it will do nothing.
      */
-    function createThumbnail(originalImage, onThumbnailCreated) {
+    function createThumbnail(error, originalImage, onThumbnailCreated) {
+        if(error) {
+            onThumbnailCreated(error, originalImage);
+            return;
+        }
+
         var canvas = document.createElement("canvas");
         var image = new Image();
 
@@ -31,7 +38,7 @@
             canvas.width = image.width;
             canvas.height = image.height;
             context.drawImage(image, 0, 0, image.width, image.height);
-            onThumbnailCreated({name: originalImage.name, thumbnail: canvas.toDataURL(), original: originalImage.data});
+            onThumbnailCreated(null, {name: originalImage.name, thumbnail: canvas.toDataURL(), original: originalImage.data});
         };
 
         image.src = originalImage.data;
@@ -58,8 +65,8 @@
      * }
      */
     ImageProcessor.prototype.createThumbnail = function (file, onThumbnailCreated) {
-        this.imageReader.load(file, function (image) {
-            createThumbnail(image, onThumbnailCreated);
+        this.imageReader.load(file, function (error, image) {
+            createThumbnail(error, image, onThumbnailCreated);
         });
     };
 

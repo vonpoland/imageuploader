@@ -5,6 +5,7 @@
     'use strict';
 
     window.ImageUploader = {
-        ImageProcessing: {}
+        ImageProcessing: {},
+        UIHelper : {}
     };
 }(window));

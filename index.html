@@ -6,6 +6,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles/layout.css">
+
     <!-- Load components templates -->
     <link rel="import" href="components/fileUploader/template.html" id="imageUploaderTemplate">
     <link rel="import" href="components/imageThumbnail/template.html" id="imageThumbnailTemplate">
@@ -14,16 +15,17 @@
     <section id="upload">
         <file-uploader id="imageUploader" class="image-uploader"></file-uploader>
     </section>
-    <section id="thumbnails">
-    </section>
+    <section id="thumbnails"></section>
 
     <!-- Load components -->
     <script src="components/fileUploader/init.js"></script>
     <script src="components/imageThumbnail/init.js"></script>
 
     <script src="scripts/bootstrap.js"></script>
+    <script src="scripts/uiHelper.js"></script>
     <script src="scripts/image/imageProcessor.js"></script>
     <script src="scripts/image/imageReader.js"></script>
+    <script src="scripts/image/imageUploadService.js"></script>
     <script src="scripts/imageUploaderApp.js"></script>
 </body>
 </html>

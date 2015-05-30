@@ -18,7 +18,7 @@
      * Set the view so it can be used by controller.
      * @param {HTMLElement} view.
      */
-    ImageUploaderController.prototype.setView = function(view) {
+    ImageUploaderController.prototype.setView = function (view) {
         this.view = view;
     };
 
@@ -26,12 +26,12 @@
      * Function used to fire callback when new elements are returned by the component.
      * @param callback
      */
-    ImageUploaderController.prototype.onNewElements = function(callback) {
+    ImageUploaderController.prototype.onNewElements = function (callback) {
         this.view.addEventListener('newElements', callback);
     };
 
 
-    function dispatchNewElements(files) {
+    function dispatchNewElementsEvent(files) {
         files = Array.prototype.slice.apply(files);
         this.dispatchEvent(new CustomEvent('newElements', {'detail': files}));
     }
@@ -41,7 +41,7 @@
         var drag = this.querySelector("#drag");
 
         input.addEventListener('change', function () {
-            dispatchNewElements.call(this, this.files);
+            dispatchNewElementsEvent.call(this, this.files);
         });
 
         drag.addEventListener("dragover", function (e) {
@@ -50,7 +50,7 @@
 
         drag.addEventListener('drop', function (event) {
             event.preventDefault();
-            dispatchNewElements.call(this, event.dataTransfer.files);
+            dispatchNewElementsEvent.call(this, event.dataTransfer.files);
         });
     }
 
