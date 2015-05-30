@@ -26,18 +26,21 @@
         }
 
         [dragging] {
-            background-color: #3C3F41;
+            background-color: #364119;
             color: white;
             text-align: center;
         }
 
-        [dragging]:after {
-            content: "DROP HERE!"
-
+        /* Set this as absolute so we don't have problems
+           when it's hovered because it will trigger 'dragleave'.
+           And this will cause our dragging background to dissappear.
+         */
+        .drop-zone {
+            position: absolute;
         }
     </style>
     <div class="image-upload">
         <div class="input-field image-upload-option"><input type="file" multiple></div>
-        <div id="drag" class="image-upload-option"></div>
+        <div id="drag" class="image-upload-option"><h1 class="drop-zone">drop here</h1></div>
     </div>
 </template>

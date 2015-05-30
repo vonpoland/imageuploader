@@ -6,14 +6,26 @@
 (function (document) {
     "use strict";
 
+    /**
+     * Controller of the image uploader.
+     * @constructor
+     */
     function ImageUploaderController() {
         this.view = null;
     }
 
+    /**
+     * Set the view so it can be used by controller.
+     * @param {HTMLElement} view.
+     */
     ImageUploaderController.prototype.setView = function(view) {
         this.view = view;
     };
 
+    /**
+     * Function used to fire callback when new elements are returned by the component.
+     * @param callback
+     */
     ImageUploaderController.prototype.onNewElements = function(callback) {
         this.view.addEventListener('newElements', callback);
     };

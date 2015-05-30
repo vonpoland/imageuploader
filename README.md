@@ -14,3 +14,14 @@ JavaScript application that is able to perform all described operations.
 * Commented code
 * No third-party code
 * Basic UI that allows to test the solution
+
+#How to run application
+
+**Important** : On Firefox you need to enable webcomponents - in about:config tab enable dom.webcomponents.enabled = true
+
+Application needs to hosted on web server example(otherwise you will get cross origin policy error when importing html):
+
+1. npm install -g http-server
+2. Go to your application directory and type **http-server**
+3. Then go to http://localhost:8080/index.html
+
