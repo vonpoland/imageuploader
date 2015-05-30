@@ -31,7 +31,7 @@
             canvas.width = image.width;
             canvas.height = image.height;
             context.drawImage(image, 0, 0, image.width, image.height);
-            onThumbnailCreated({name: originalImage.name, thubmnail: canvas.toDataURL(), original: originalImage.data});
+            onThumbnailCreated({name: originalImage.name, thumbnail: canvas.toDataURL(), original: originalImage.data});
         };
 
         image.src = originalImage.data;

@@ -36,15 +36,6 @@
         this.dispatchEvent(new CustomEvent('newElements', {'detail': files}));
     }
 
-    function showDropZone(drag) {
-        drag.setAttribute("dragging", "true");
-
-    }
-
-    function hideDropZone(drag) {
-        drag.removeAttribute("dragging");
-    }
-
     function setChildrenEventHandlers() {
         var input = this.querySelector("input");
         var drag = this.querySelector("#drag");
@@ -56,17 +47,9 @@
         drag.addEventListener("dragover", function (e) {
             e.preventDefault();
         }, true);
-        drag.addEventListener("dragenter", function (e) {
-            e.preventDefault();
-            showDropZone(drag);
-        }, true);
-        drag.addEventListener("dragleave", function (e) {
-            e.preventDefault();
-            hideDropZone(drag);
-        }, true);
+
         drag.addEventListener('drop', function (event) {
             event.preventDefault();
-            hideDropZone(drag);
             dispatchNewElements.call(this, event.dataTransfer.files);
         });
     }

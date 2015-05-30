@@ -1,7 +1,8 @@
 (function (ImageProcessor, ImageReader) {
     'use strict';
 
-    var imageUploader = document.querySelector("#imageUploader");
+    var $ = document.querySelector.bind(document);
+    var imageUploader = $("#imageUploader");
     var imageProcessor = ImageProcessor.build(ImageReader);
 
     function onThumbnailCreated(image) {
@@ -13,13 +14,15 @@
             window.open(image.original);
         });
 
-        document.querySelector("#thumbnails").appendChild(thumbnail);
+        $("#thumbnails").appendChild(thumbnail);
     }
 
-    imageUploader.controller.onNewElements(function (elements) {
+    function onFilesUpload(elements) {
         elements.detail.forEach(function (file) {
             imageProcessor.createThumbnail(file, onThumbnailCreated);
         });
-    });
+    }
+
+    imageUploader.controller.onNewElements(onFilesUpload);
 
 }(window.ImageUploader.ImageProcessing.ImageProcessor, window.ImageUploader.ImageProcessing.ImageReader));

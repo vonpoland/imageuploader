@@ -31,7 +31,7 @@
      * }
      */
     ThumbnailController.prototype.setImage = function (image) {
-        this.view.querySelector('img').src = image.thubmnail;
+        this.view.querySelector('img').src = image.thumbnail;
         this.view.querySelector('.image-thumbnail-name').textContent = image.name;
     };
 
